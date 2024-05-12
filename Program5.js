@@ -14,27 +14,32 @@ function analyzeTweet(tweet) {
   let sadCount = 0;
 
   /**
-   * counting happiness
+   * Counting happiness
    */
-  for (let _ = 0; _ < happyWords.length; _++) {
-    if (tweet.includes(happyWords[_])) {
-      happyCount++;
+
+  for (let word of happyWords) {
+    let regex = new RegExp(word, "gi");
+    let matches = tweet.match(regex);
+    if (matches) {
+      happyCount += matches.length;
     }
   }
 
   /**
-   * counting sadness
+   * Counting sadness
    */
-  for (let _ = 0; _ < sadWords.length; _++) {
-    if (tweet.includes(sadWords[_])) {
-      sadCount++;
+
+  for (let word of sadWords) {
+    let regex = new RegExp(word, "gi");
+    let matches = tweet.match(regex);
+    if (matches) {
+      sadCount += matches.length;
     }
   }
 
   /**
-   * determining happiness or sadness
+   * Determining happiness or sadness based on counts
    */
-
   if (happyCount > sadCount) {
     return "This person is happy";
   } else if (sadCount > happyCount) {

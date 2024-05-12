@@ -10,4 +10,4 @@ function sumDivisibleBySeven(start, end) {
   );
 }
 
-sumDivisibleBySeven(1, 15);
+sumDivisibleBySeven(18, 534);
